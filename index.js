@@ -7,6 +7,13 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
+// Middleware for logging incoming requests
+app.use((req, res, next) => {
+    const currentDateTime = new Date().toLocaleString();
+    console.log(`[${currentDateTime}] ${req.method} ${req.url}`);
+    next(); // Pass to next middleware or route handler
+});
+
 // Middleware
 app.use(bodyParser.json());
 
