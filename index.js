@@ -28,6 +28,12 @@ app.get('/', (req, res) => {
     res.send(`Auth Microservice is up and running as of ${currentDateTime}`);
 });
 
+// Root endpoint to display service status with current date and time
+app.get('/auth-api', (req, res) => {
+    const currentDateTime = new Date().toLocaleString();
+    res.send(`Auth Microservice on auth-api is up and running as of ${currentDateTime}`);
+});
+
 // Register endpoint
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
